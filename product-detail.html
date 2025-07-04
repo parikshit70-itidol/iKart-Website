@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Product Detail - iKart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container-fluid">
@@ -60,7 +63,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#" id="myAccountLink" style="display: none;">My
-                                    Account</a></li>
+                                        Account</a></li>
                             <li><a class="dropdown-item" href="#" id="myOrdersLink" style="display: none;">My Orders</a>
                             </li>
                             <li>
@@ -74,274 +77,252 @@
             </div>
         </div>
     </nav>
-<main class="container my-5">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="product-listing.html">Shop</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Product Name</li>
-        </ol>
-    </nav>
 
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <div id="productImageCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://via.placeholder.com/600x450/e9ecef/212529?text=Product+Main" class="d-block w-100 img-thumbnail" alt="Product Main Image">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://via.placeholder.com/600x450/dee2e6/212529?text=Product+Side+1" class="d-block w-100 img-thumbnail" alt="Product Side Image 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://via.placeholder.com/600x450/ced4da/212529?text=Product+Side+2" class="d-block w-100 img-thumbnail" alt="Product Side Image 2">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            <div class="d-flex justify-content-center mt-3">
-                <img src="https://via.placeholder.com/100x75/e9ecef/212529?text=Thumb1" class="img-thumbnail me-2" alt="Thumbnail 1" style="width: 100px; cursor: pointer;" data-bs-target="#productImageCarousel" data-bs-slide-to="0">
-                <img src="https://via.placeholder.com/100x75/dee2e6/212529?text=Thumb2" class="img-thumbnail me-2" alt="Thumbnail 2" style="width: 100px; cursor: pointer;" data-bs-target="#productImageCarousel" data-bs-slide-to="1">
-                <img src="https://via.placeholder.com/100x75/ced4da/212529?text=Thumb3" class="img-thumbnail" alt="Thumbnail 3" style="width: 100px; cursor: pointer;" data-bs-target="#productImageCarousel" data-bs-slide-to="2">
-            </div>
-        </div>
+    <main class="container my-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="product-listing.html">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="productNameBreadcrumb">Product Name</li>
+            </ol>
+        </nav>
 
-        <div class="col-md-6">
-            <h1 class="display-5 mb-3">Ergonomic Office Chair Pro</h1>
-            <p class="lead text-muted">Brand: Office Ergonomics</p>
-            <div class="d-flex align-items-center mb-3">
-                <span class="fs-4 fw-bold text-danger me-3"> ₹399.99</span>
-                <span class="text-decoration-line-through text-muted"> ₹450.00</span>
-                <span class="badge bg-success ms-3">10% Off</span>
-            </div>
-            <div class="mb-3">
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-half text-warning"></i>
-                <span class="ms-2 text-muted">(150 Reviews)</span>
-            </div>
-            <p><strong>Availability:</strong> <span class="text-success">In Stock</span></p>
-            <p><strong>SKU:</strong> OC-PRO-001</p>
-
-            <hr>
-
-            <div class="mb-3">
-                <label for="chairColor" class="form-label fw-bold">Color:</label>
-                <select class="form-select w-auto" id="chairColor">
-                    <option selected>Black</option>
-                    <option value="blue">Blue</option>
-                    <option value="grey">Grey</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="quantity" class="form-label fw-bold">Quantity:</label>
-                <input type="number" class="form-control w-auto" id="quantity" value="1" min="1" max="10">
-            </div>
-
-            <div class="d-grid gap-2 d-md-flex mt-4">
-                <button class="btn btn-primary btn-lg flex-fill"><i class="bi bi-cart-plus me-2"></i>Add to Cart</button>
-                <button class="btn btn-outline-danger btn-lg"><i class="bi bi-heart me-2"></i>Add to Wishlist</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="mt-5">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (150)</button>
-            </li>
-        </ul>
-        <div class="tab-content p-3 border border-top-0" id="myTabContent">
-            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                <h4 class="mt-3">Product Overview</h4>
-                <p>
-                    Experience unparalleled comfort and support with the Ergonomic Office Chair Pro. Designed with advanced ergonomics, this chair promotes healthy posture and reduces strain during long hours of work. Its breathable mesh back, adjustable lumbar support, and cushioned seat ensure maximum comfort.
-                </p>
-                <h4 class="mt-3">Key Features:</h4>
-                <ul>
-                    <li>Adjustable lumbar support</li>
-                    <li>Breathable mesh back</li>
-                    <li>Padded armrests</li>
-                    <li>Smooth-rolling casters</li>
-                    <li>360-degree swivel</li>
-                    <li>Heavy-duty base for stability</li>
-                </ul>
-                <p>
-                    Perfect for home offices or professional environments, the Ergonomic Office Chair Pro is built to last and provides the ultimate seating experience.
-                </p>
-            </div>
-            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                <h4 class="mt-3">Customer Reviews</h4>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-2">
-                            <h6 class="card-title mb-0 me-2">Jane Doe</h6>
-                            <small class="text-muted"> - July 1, 2025</small>
-                        </div>
-                        <div class="mb-2">
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                        </div>
-                        <p class="card-text">"This chair is a game-changer! My back pain has significantly reduced since I started using it. Highly recommend!"</p>
-                    </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-2">
-                            <h6 class="card-title mb-0 me-2">John Smith</h6>
-                            <small class="text-muted"> - June 28, 2025</small>
-                        </div>
-                        <div class="mb-2">
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star text-warning"></i>
-                        </div>
-                        <p class="card-text">"Good chair, comfortable for long hours. Assembly was a bit tricky but manageable."</p>
-                    </div>
-                </div>
-                <hr>
-                <h5 class="mt-4">Leave a Review</h5>
-                <form>
-                    <div class="mb-3">
-                        <label for="reviewRating" class="form-label">Rating:</label>
-                        <div>
-                            <i class="bi bi-star fs-4 text-warning" style="cursor: pointer;"></i>
-                            <i class="bi bi-star fs-4 text-warning" style="cursor: pointer;"></i>
-                            <i class="bi bi-star fs-4 text-warning" style="cursor: pointer;"></i>
-                            <i class="bi bi-star fs-4 text-warning" style="cursor: pointer;"></i>
-                            <i class="bi bi-star fs-4 text-warning" style="cursor: pointer;"></i>
-                            <small class="ms-2 text-muted">(Click to rate)</small>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="reviewText" class="form-label">Your Review:</label>
-                        <textarea class="form-control" id="reviewText" rows="4" placeholder="Share your experience..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit Review</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <section class="container my-5">
-        <h2 class="text-center mb-4">You might also like</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/300x200/f8f9fa/212529?text=Related+Product+1" class="card-img-top" alt="Related Product 1">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Desk Lamp LED</h5>
-                        <p class="card-text text-muted">Home Office</p>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="fs-5 fw-bold"> ₹49.99</span>
-                        </div>
-                        <div class="mt-auto d-grid">
-                            <a href="product-detail.html" class="btn btn-outline-primary">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/300x200/f8f9fa/212529?text=Related+Product+2" class="card-img-top" alt="Related Product 2">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Standing Desk Converter</h5>
-                        <p class="card-text text-muted">Office Furniture</p>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="fs-5 fw-bold"> ₹189.00</span>
-                        </div>
-                        <div class="mt-auto d-grid">
-                            <a href="product-detail.html" class="btn btn-outline-primary">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/300x200/f8f9fa/212529?text=Related+Product+3" class="card-img-top" alt="Related Product 3">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Wireless Keyboard</h5>
-                        <p class="card-text text-muted">Electronics</p>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="fs-5 fw-bold"> ₹75.50</span>
-                        </div>
-                        <div class="mt-auto d-grid">
-                            <a href="product-detail.html" class="btn btn-outline-primary">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/300x200/f8f9fa/212529?text=Related+Product+4" class="card-img-top" alt="Related Product 4">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Noise-Cancelling Headphones</h5>
-                        <p class="card-text text-muted">Audio</p>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="fs-5 fw-bold"> ₹199.99</span>
-                        </div>
-                        <div class="mt-auto d-grid">
-                            <a href="product-detail.html" class="btn btn-outline-primary">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-
-
-<footer class="bg-black text-white py-4 mt-5">
-    <div class="container">
         <div class="row">
-            <div class="col-md-4 mb-3">
-                <h5 class=""><i class="bi bi-apple" size="30"></i>iKart</h5>
-                <p>High-quality products for every Techie. Shop with confidence.</p>
+            <div class="col-md-6 mb-4">
+                <div id="productCarousel" class="carousel slide" data-bs-ride="carousel"> <!-- Changed ID to productCarousel -->
+                    <div class="carousel-inner">
+                        <!-- Images will be dynamically loaded here by JavaScript -->
+                        <div class="carousel-item active">
+                            <img src="https://placehold.co/600x400/E0E0E0/000000?text=Product+Image" class="d-block w-100 rounded shadow-sm" alt="Product Image Placeholder">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="d-flex mt-3">
+                    <!-- Thumbnails will be dynamically loaded here by JavaScript -->
+                </div>
             </div>
-            <div class="col-md-4 mb-3">
-                <h5 class="text-uppercase">Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="Home.html" class="text-white text-decoration-none">Home</a></li>
-                    <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
-                    <li><a href="Product Listing.html" class="text-white text-decoration-none">Shop</a></li>
-                    <li><a href="contact.html" class="text-white text-decoration-none">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4 mb-3">
-                <h5 class="text-uppercase">Follow Us</h5>
-                <a href="#" class="text-white me-2"><i class="bi bi-facebook fs-4"></i></a>
-                <a href="#" class="text-white me-2"><i class="bi bi-twitter fs-4"></i></a>
-                <a href="#" class="text-white me-2"><i class="bi bi-instagram fs-4"></i></a>
-                <a href="#" class="text-white"><i class="bi bi-linkedin fs-4"></i></a>
-            </div>
-        </div>
-        <hr class="my-3">
-        <div class="text-center">
-            <p>&copy; 2025 iKart. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
- <script type="module" src="javascript/data.js"></script> 
-<script type="module" src="javascript/main.js"></script>
+            <div class="col-md-6">
+                <h1 class="display-5 mb-3" id="productName">Product Name Placeholder</h1> <!-- Added ID -->
+                <p class="lead text-muted" id="productDescriptionLead">Brand: Office Ergonomics</p> <!-- Added ID -->
+                <div class="d-flex align-items-center mb-3">
+                    <span class="fs-4 fw-bold text-danger me-3" id="productPrice">₹0.00</span> <!-- Added ID -->
+                    <span class="text-decoration-line-through text-muted" id="productOldPrice" style="display: none;"></span> <!-- Added for potential old price -->
+                    <span class="badge bg-success ms-3" id="productDiscount" style="display: none;"></span> <!-- Added for potential discount -->
+                </div>
+                <div class="mb-3" id="productRatingContainer">
+                    <!-- Stars will be dynamically loaded here by JavaScript -->
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-half text-warning"></i>
+                    <span class="ms-2 text-muted" id="productReviewsCount">(0 Reviews)</span>
+                </div>
+                <p><strong>Availability:</strong> <span class="text-success" id="productAvailability">In Stock</span></p>
+                <p><strong>SKU:</strong> <span id="productSKU">N/A</span></p>
+
+                <hr>
+
+                <!-- Color and Quantity selectors (if applicable, can be left as static or dynamic) -->
+                <div class="mb-3" id="productColorSelection" style="display: none;">
+                    <label for="productColor" class="form-label fw-bold">Color:</label>
+                    <select class="form-select w-auto" id="productColor">
+                        <option selected>Black</option>
+                        <option value="blue">Blue</option>
+                        <option value="grey">Grey</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="productQuantitySelection">
+                    <label for="quantity" class="form-label fw-bold">Quantity:</label>
+                    <input type="number" class="form-control w-auto" id="quantity" value="1" min="1" max="10">
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex mt-4">
+                    <button class="btn btn-primary btn-lg flex-fill" id="addToCartBtnDetail"><i class="bi bi-cart-plus me-2"></i>Add to Cart</button> <!-- Added ID -->
+                    <button class="btn btn-outline-danger btn-lg" id="addToWishlistBtnDetail"><i class="bi bi-heart me-2"></i>Add to Wishlist</button> <!-- Added ID -->
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="specifications-tab" data-bs-toggle="tab" data-bs-target="#specifications" type="button" role="tab" aria-controls="specifications" aria-selected="false">Specifications</button> <!-- Added Specifications Tab -->
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews (0)</button> <!-- Updated text to 0 -->
+                </li>
+            </ul>
+            <div class="tab-content p-3 border border-top-0" id="myTabContent">
+                <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                    <!-- Description content will be loaded here by JavaScript -->
+                    <p class="text-muted">No description available.</p>
+                </div>
+                <div class="tab-pane fade" id="specifications" role="tabpanel" aria-labelledby="specifications-tab">
+                    <!-- Specifications content will be loaded here by JavaScript -->
+                    <p class="text-muted">No specifications available.</p>
+                </div>
+                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                    <h4 class="mt-3">Customer Reviews</h4>
+                    <!-- Reviews will be dynamically loaded here by JavaScript -->
+                    <p class="text-muted">No reviews yet. Be the first to review this product!</p>
+                    <hr>
+                    <h5 class="mt-4">Leave a Review</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label for="reviewRating" class="form-label">Rating:</label>
+                            <div>
+                                <i class="bi bi-star fs-4 text-warning" style="cursor: pointer;"></i>
+                                <i class="bi bi-star fs-4 text-warning" style="cursor: pointer;"></i>
+                                <i class="bi bi-star fs-4 text-warning" style="cursor: pointer;"></i>
+                                <i class="bi bi-star fs-4 text-warning" style="cursor: pointer;"></i>
+                                <i class="bi bi-star fs-4 text-warning" style="cursor: pointer;"></i>
+                                <small class="ms-2 text-muted">(Click to rate)</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="reviewText" class="form-label">Your Review:</label>
+                            <textarea class="form-control" id="reviewText" rows="4" placeholder="Share your experience..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <section class="container my-5" id="relatedProductsSection"> <!-- Added ID -->
+            <h2 class="text-center mb-4">You might also like</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4" id="relatedProductsContainer"> <!-- Added ID -->
+                <!-- Related products will be dynamically loaded here by JavaScript -->
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="https://placehold.co/300x200/f8f9fa/212529?text=Related+Product+1" class="card-img-top" alt="Related Product 1">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Loading...</h5>
+                            <p class="card-text text-muted">₹0.00</p>
+                            <div class="mt-auto d-grid">
+                                <a href="#" class="btn btn-outline-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="https://placehold.co/300x200/f8f9fa/212529?text=Related+Product+2" class="card-img-top" alt="Related Product 2">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Loading...</h5>
+                            <p class="card-text text-muted">₹0.00</p>
+                            <div class="mt-auto d-grid">
+                                <a href="#" class="btn btn-outline-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="https://placehold.co/300x200/f8f9fa/212529?text=Related+Product+3" class="card-img-top" alt="Related Product 3">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Loading...</h5>
+                            <p class="card-text text-muted">₹0.00</p>
+                            <div class="mt-auto d-grid">
+                                <a href="#" class="btn btn-outline-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="https://placehold.co/300x200/f8f9fa/212529?text=Related+Product+4" class="card-img-top" alt="Related Product 4">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Loading...</h5>
+                            <p class="card-text text-muted">₹0.00</p>
+                            <div class="mt-auto d-grid">
+                                <a href="#" class="btn btn-outline-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class=""><i class="bi bi-apple" size="30"></i>iKart</h5>
+                    <p>High-quality products for every Techie. Shop with confidence.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li> <!-- Corrected link -->
+                        <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li><a href="product-listing.html" class="text-white text-decoration-none">Shop</a></li> <!-- Corrected link -->
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase">Follow Us</h5>
+                    <a href="#" class="text-white me-2"><i class="bi bi-facebook fs-4"></i></a>
+                    <a href="#" class="text-white me-2"><i class="bi bi-twitter fs-4"></i></a>
+                    <a href="#" class="text-white me-2"><i class="bi bi-instagram fs-4"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-linkedin fs-4"></i></a>
+                </div>
+            </div>
+
+            <hr class="my-3">
+            <div class="text-center">
+                <p>&copy; 2025 iKart. All rights reserved.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Script loading order is crucial for modules -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- Load data.js as a module first, as it exports 'products' -->
+    <script type="module" src="javascript/data.js"></script>
+    <!-- Load main.js as a module, which then imports other modules -->
+    <script type="module" src="javascript/main.js"></script>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
 </body>
+
 </html>
