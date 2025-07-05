@@ -149,7 +149,7 @@ export function renderProductDetail() {
                         <div class="card-body text-center">
                             <h6 class="card-title text-base font-semibold">${relProduct.name}</h6>
                             <p class="card-text text-muted mb-2">₹${relProduct.price.toLocaleString('en-IN')}</p>
-                            <a href="product-detail.html?id=${relProduct.id}" class="btn btn-outline-primary btn-sm rounded-md">View Details</a>
+                            <a href="product-detail.html?id=${relProduct.id}" class="btn btn-outline-dark btn-sm rounded-md">View Details</a>
                         </div>
                     </div>
                 </div>

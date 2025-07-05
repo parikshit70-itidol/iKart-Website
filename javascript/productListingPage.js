@@ -43,9 +43,9 @@ const generateProductCard = (product) => {
                         </div>
                     </div>
                     <div class="mt-auto d-grid gap-2">
-                        <a href="product-detail.html?id=${product.id}" class="btn btn-outline-primary rounded-md">View Details</a>
-                        <button class="btn btn-primary add-to-cart-btn rounded-md" data-product-id="${product.id}"><i class="bi bi-cart-plus me-2"></i>Add to Cart</button>
-                        <button class="btn btn-${isInWishlist ? 'danger' : 'outline-secondary'} toggle-wishlist-btn rounded-md" data-product-id="${product.id}">
+                        <a href="product-detail.html?id=${product.id}" class="btn btn-outline-dark rounded-md">View Details</a>
+                        <button class="btn btn-dark add-to-cart-btn rounded-md" data-product-id="${product.id}"><i class="bi bi-cart-plus me-2"></i>Add to Cart</button>
+                        <button class="btn btn-${isInWishlist ? 'danger' : 'dark'} toggle-wishlist-btn rounded-md" data-product-id="${product.id}">
                             <i class="bi bi-heart${isInWishlist ? '-fill' : ''} me-2"></i>${isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}
                         </button>
                     </div>

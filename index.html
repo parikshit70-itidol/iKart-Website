@@ -111,40 +111,70 @@
  
     <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-<div class="container-fluid">
-<a class="navbar-brand fw-bold" href="index.html">
-<i class="bi bi-apple"></i> iKart
-</a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-<span class="navbar-toggler-icon"></span>
-</button>
- 
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-apple" size="30"></i>iKart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav mx-auto">
-<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="product-listing.html">Shop</a></li>
-<li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-<li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-</ul>
-<ul class="navbar-nav ms-auto">
-<li class="nav-item">
-<a class="nav-link" href="wishlist.html" title="Wishlist">
-<i class="bi bi-heart fs-5"></i>
-<span class="badge bg-dark rounded-pill">0</span>
-</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="cart.html" title="Cart">
-<i class="bi bi-cart fs-5"></i>
-<span class="badge bg-dark rounded-pill">0</span>
-</a>
-</li>
-<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-<li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
-</ul>
-</div>
-</div>
-</nav>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="product-listing.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="wishlist.html" title="Wishlist">
+                            <i class="bi bi-heart fs-5"></i>
+                            <span class="badge bg-black rounded-pill align-top">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html" title="Cart">
+                            <i class="bi bi-cart fs-5"></i>
+                            <span class="badge bg-black rounded-pill align-top">0</span>
+                        </a>
+                    </li>
+                    <!-- Login/Signup links (visible when logged out by default) -->
+                    <li class="nav-item" id="navLoginLink">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item" id="navSignupLink">
+                        <a class="nav-link" href="signup.html">Sign Up</a>
+                    </li>
+
+                    <!-- User Dropdown (hidden when logged out by default, shown by JS when logged in) -->
+                    <li class="nav-item dropdown" style="display: none;" id="userDropdownContainer">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="display: none;">
+                            <i class="bi bi-person-circle fs-5"></i> <span id="userDisplayName"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#" id="myAccountLink" style="display: none;">My
+                                    Account</a></li>
+                            <li><a class="dropdown-item" href="#" id="myOrdersLink" style="display: none;">My Orders</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="logoutDropdownItem"
+                                    style="display: none;">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
  
     <!-- Hero Carousel -->
 <section class="hero-section mb-5">
@@ -156,7 +186,7 @@
 </div>
 <div class="carousel-inner">
 <div class="carousel-item active">
-<img src="./assets/images/img3.jpg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="New Arrivals">
+<img src="./assets/images/appl.jpg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="New Arrivals">
 <div class="carousel-caption d-none d-md-block">
 <h2 class="display-5">Discover Our Latest Products</h2>
 <p>Shop the Latest and Innovation Gadgets.</p>
@@ -164,11 +194,11 @@
 </div>
 </div>
 <div class="carousel-item">
-<img src="./assets/images/img1.jpg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Discount">
+<img src="./assets/images/apple-01.png" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Discount">
 <div class="carousel-caption d-none d-md-block">
 <h2 class="display-5">Student Discount - Up to 20% Off!</h2>
 <p>Get amazing deals on MacBooks and more.</p>
-<a href="product-listing.html" class="btn btn-light btn-lg mt-3">View Deals</a>
+<a href="product-listing.html" class="btn btn-dark btn-lg mt-3">View Deals</a>
 </div>
 </div>
 <div class="carousel-item">
