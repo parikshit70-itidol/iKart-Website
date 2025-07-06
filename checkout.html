@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - MyStore</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
@@ -47,7 +47,6 @@
                             <span class="badge bg-black rounded-pill align-top">0</span>
                         </a>
                     </li>
-                    <!-- Login/Signup links (visible when logged out by default) -->
                     <li class="nav-item" id="navLoginLink">
                         <a class="nav-link" href="login.html">Login</a>
                     </li>
@@ -55,7 +54,6 @@
                         <a class="nav-link" href="signup.html">Sign Up</a>
                     </li>
 
-                    <!-- User Dropdown (hidden when logged out by default, shown by JS when logged in) -->
                     <li class="nav-item dropdown" style="display: none;" id="userDropdownContainer">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false" style="display: none;">
@@ -78,10 +76,16 @@
     <div class="container my-5 pt-5">
         <h1 class="text-center mb-4">Checkout</h1>
 
+        <div id="orderStatusAlert" class="alert alert-success alert-dismissible fade show text-center" role="alert"
+            style="display: none;">
+            <strong id="alertMessage"></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
         <div class="row g-5">
             <div class="col-md-7 col-lg-8">
                 <h4 class="mb-3">Billing Address</h4>
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" novalidate id="checkoutForm">
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="firstName" class="form-label">First name</label>
@@ -182,15 +186,15 @@
                             <label class="form-check-label" for="debit">Debit card</label>
                         </div>
                         <div class="form-check">
-                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                            <label class="form-check-label" for="paypal">PayPal</label>
+                            <input id="cod" name="paymentMethod" type="radio" class="form-check-input" required>
+                            <label class="form-check-label" for="cod">Cash on Delivery (COD)</label>
                         </div>
-                    </div>
+                        </div>
 
-                    <div class="row gy-3">
+                    <div id="cardPaymentDetails" class="row gy-3">
                         <div class="col-md-6">
                             <label for="cc-name" class="form-label">Name on card</label>
-                            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                            <input type="text" class="form-control" id="cc-name" placeholder="">
                             <small class="text-muted">Full name as displayed on card</small>
                             <div class="invalid-feedback">
                                 Name on card is required
@@ -199,7 +203,7 @@
 
                         <div class="col-md-6">
                             <label for="cc-number" class="form-label">Credit card number</label>
-                            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                            <input type="text" class="form-control" id="cc-number" placeholder="">
                             <div class="invalid-feedback">
                                 Credit card number is required
                             </div>
@@ -207,7 +211,7 @@
 
                         <div class="col-md-3">
                             <label for="cc-expiration" class="form-label">Expiration</label>
-                            <input type="text" class="form-control" id="cc-expiration" placeholder="MM/YY" required>
+                            <input type="text" class="form-control" id="cc-expiration" placeholder="MM/YY">
                             <div class="invalid-feedback">
                                 Expiration date required
                             </div>
@@ -215,7 +219,7 @@
 
                         <div class="col-md-3">
                             <label for="cc-cvv" class="form-label">CVV</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder="">
                             <div class="invalid-feedback">
                                 Security code required
                             </div>
@@ -244,21 +248,17 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Subtotal
-                        <span id="checkoutCartSubtotal">₹0.00</span> <!-- Corrected ID -->
-                    </li>
+                        <span id="checkoutCartSubtotal">₹0.00</span> </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Shipping
-                        <span id="checkoutCartShipping">₹0.00</span> <!-- Corrected ID -->
-                    </li>
+                        <span id="checkoutCartShipping">₹0.00</span> </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Tax (GST)
-                        <span id="checkoutCartTax">₹0.00</span> <!-- Corrected ID -->
-                    </li>
+                        <span id="checkoutCartTax">₹0.00</span> </li>
                     <li
                         class="list-group-item d-flex justify-content-between align-items-center fw-bold text-primary fs-5">
                         Total
-                        <span id="checkoutCartTotal">₹0.00</span> <!-- Corrected ID -->
-                    </li>
+                        <span id="checkoutCartTotal">₹0.00</span> </li>
                 </ul>
                 <form class="card p-2">
                     <div class="input-group">
@@ -306,14 +306,55 @@
         </div>
     </footer>
 
-    <!-- Script loading order is crucial for modules -->
+    <div class="modal fade" id="orderConfirmationModal" tabindex="-1" aria-labelledby="orderConfirmationModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="orderConfirmationModalLabel">Order Confirmed!</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mb-4">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+                </div>
+                <p class="lead text-center">Thank you for your order, <strong id="modalCustomerName"></strong>!</p>
+                <p class="text-center">Your order has been processed and will be delivered to:</p>
+                <p class="fw-bold text-center" id="modalDeliveryAddress"></p>
+                <p class="text-muted text-center">It will be delivered in approximately **3 working days**.</p>
+                <hr>
+                <h6>Order Summary:</h6>
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Subtotal:</span> <span id="modalSubtotal"></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Shipping:</span> <span id="modalShipping"></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Tax (GST):</span> <span id="modalTax"></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between fw-bold">
+                        <span>Total Paid:</span> <span id="modalTotal"></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Payment Method:</span> <span id="modalPaymentMethod"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer justify-content-center">
+                **<button type="button" class="btn btn-primary" id="continueShoppingButton" data-bs-dismiss="modal">Continue Shopping</button>**
+            </div>
+        </div>
+    </div>
+</div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <!-- Load data.js as a module first, as it exports 'products' -->
     <script type="module" src="javascript/data.js"></script>
-    <!-- Load main.js as a module, which then imports other modules -->
     <script type="module" src="javascript/main.js"></script>
 
     <script>
@@ -321,18 +362,166 @@
         (function () {
             'use strict'
 
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            // Get the form and the "Continue to payment" button
+            var checkoutForm = document.getElementById('checkoutForm');
+            var paymentButtons = document.querySelectorAll('input[name="paymentMethod"]');
+            var cardPaymentDetails = document.getElementById('cardPaymentDetails');
+            var orderStatusAlert = document.getElementById('orderStatusAlert');
+            var alertMessage = document.getElementById('alertMessage');
+
+            // Function to show a Bootstrap alert
+            function showBootstrapAlert(message, type = 'success') {
+                orderStatusAlert.classList.remove('alert-success', 'alert-danger', 'alert-warning', 'alert-info');
+                orderStatusAlert.classList.add(`alert-${type}`);
+                alertMessage.textContent = message;
+                orderStatusAlert.style.display = 'block';
+                // Automatically hide the alert after 5 seconds
+                setTimeout(() => {
+                    orderStatusAlert.style.display = 'none';
+                }, 5000);
+            }
+
+
+            // Function to toggle card payment details visibility and required attributes
+            function toggleCardDetails() {
+                var selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked').id;
+                var isCardSelected = (selectedPaymentMethod === 'credit' || selectedPaymentMethod === 'debit');
+
+                if (isCardSelected) {
+                    cardPaymentDetails.style.display = 'flex'; // Use flex to maintain row layout
+                    // Set required attributes for card fields
+                    document.getElementById('cc-name').setAttribute('required', 'required');
+                    document.getElementById('cc-number').setAttribute('required', 'required');
+                    document.getElementById('cc-expiration').setAttribute('required', 'required');
+                    document.getElementById('cc-cvv').setAttribute('required', 'required');
+                } else {
+                    cardPaymentDetails.style.display = 'none';
+                    // Remove required attributes for card fields when not selected
+                    document.getElementById('cc-name').removeAttribute('required');
+                    document.getElementById('cc-number').removeAttribute('required');
+                    document.getElementById('cc-expiration').removeAttribute('required');
+                    document.getElementById('cc-cvv').removeAttribute('required');
+                }
+            }
+
+            // Add event listeners to payment method radio buttons
+            paymentButtons.forEach(function (radio) {
+                radio.addEventListener('change', toggleCardDetails);
+            });
+
+            // Initial call to set correct state on page load
+            toggleCardDetails();
+
+
+            // Add an event listener for the form submission
+            checkoutForm.addEventListener('submit', function (event) {
+                // Check form validity using Bootstrap's built-in checkValidity
+                if (!checkoutForm.checkValidity()) {
+                    event.preventDefault(); // Prevent default submission
+                    event.stopPropagation(); // Stop propagation
+                    showBootstrapAlert('Please fill in all required fields correctly.', 'danger');
+                } else {
+                    event.preventDefault(); // Prevent default form submission to handle it manually
+
+                    // 1. Show a Bootstrap alert instead of native alert
+                    showBootstrapAlert('Your order is being processed and will be delivered soon!', 'success');
+
+
+                    // 2. Gather user and order data for the modal
+                    const firstName = document.getElementById('firstName').value;
+                    const lastName = document.getElementById('lastName').value;
+                    const address = document.getElementById('address').value;
+                    const address2 = document.getElementById('address2').value;
+                    const city = document.getElementById('state').value; // Using state as city for simplicity
+                    const zip = document.getElementById('zip').value;
+                    const country = document.getElementById('country').value;
+                    const fullAddress = `${address}, ${address2 ? address2 + ', ' : ''}${city}, ${zip}, ${country}`;
+
+                    const subtotal = document.getElementById('checkoutCartSubtotal').textContent;
+                    const shipping = document.getElementById('checkoutCartShipping').textContent;
+                    const tax = document.getElementById('checkoutCartTax').textContent;
+                    const total = document.getElementById('checkoutCartTotal').textContent;
+                    const paymentMethodElement = document.querySelector('input[name="paymentMethod"]:checked');
+                    const paymentMethod = paymentMethodElement ? paymentMethodElement.nextElementSibling.textContent.trim() : 'N/A';
+
+
+                    // 3. Populate the modal with the data
+                    document.getElementById('modalCustomerName').textContent = `${firstName} ${lastName}`;
+                    document.getElementById('modalDeliveryAddress').textContent = fullAddress;
+                    document.getElementById('modalSubtotal').textContent = subtotal;
+                    document.getElementById('modalShipping').textContent = shipping;
+                    document.getElementById('modalTax').textContent = tax;
+                    document.getElementById('modalTotal').textContent = total;
+                    document.getElementById('modalPaymentMethod').textContent = paymentMethod;
+
+                    // 4. Show the modal
+                    var orderConfirmationModal = new bootstrap.Modal(document.getElementById('orderConfirmationModal'));
+                    orderConfirmationModal.show();
+
+                    // 5. Clear the cart data after the modal is shown
+                    // We need to call a function from main.js or similar to clear the cart
+                    // This assumes 'clearCart' is a globally accessible function or imported
+                    if (typeof window.clearCart === 'function') {
+                        window.clearCart(); // Call the function to clear the cart
+                    } else {
+                        console.warn("clearCart() function not found. Cart data might not be cleared.");
+                        // Fallback for visual clearing if clearCart isn't available
+                        document.getElementById('checkoutCartItemsContainer').innerHTML = '';
+                        document.getElementById('checkoutCartItemCount').textContent = '0';
+                        document.getElementById('checkoutCartSubtotal').textContent = '₹0.00';
+                        document.getElementById('checkoutCartShipping').textContent = '₹0.00';
+                        document.getElementById('checkoutCartTax').textContent = '₹0.00';
+                        document.getElementById('checkoutCartTotal').textContent = '₹0.00';
+                        document.getElementById('checkoutEmptyCartMessage').style.display = 'block';
+                    }
+
+                    // Optional: Reset the form fields if needed
+                    checkoutForm.reset();
+                    checkoutForm.classList.remove('was-validated'); // Remove validation styles after reset
+                    toggleCardDetails(); // Re-apply card details visibility after form reset
+
+                }
+
+                checkoutForm.classList.add('was-validated');
+            }, false);
+
+            // Handle the case where the "Continue to payment" button outside the form is clicked
+            document.getElementById('checkoutSubmitButton').addEventListener('click', function(event) {
+                // Trigger the form submission
+                checkoutForm.requestSubmit();
+            });
+
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+    'use strict'
+
+    // ... (previous JavaScript code for form validation, alerts, etc.) ...
+
+    // Get the "Continue Shopping" button from the modal
+    const continueShoppingButton = document.getElementById('continueShoppingButton');
+
+    // Add event listener to redirect to product-listing.html
+    if (continueShoppingButton) {
+        continueShoppingButton.addEventListener('click', () => {
+            window.location.href = 'product-listing.html';
+        });
+    }
+
+    // ... (rest of your existing JavaScript code) ...
+
+})() 
+            // Existing Bootstrap validation script
             var forms = document.querySelectorAll('.needs-validation')
 
-            // Loop over them and prevent submission
             Array.prototype.slice.call(forms)
                 .forEach(function (form) {
+                    // This listener is now mostly redundant for the main checkout form due to the above.
+                    // Keep it if there are other forms or for general validation styles.
                     form.addEventListener('submit', function (event) {
                         if (!form.checkValidity()) {
                             event.preventDefault()
                             event.stopPropagation()
                         }
-
                         form.classList.add('was-validated')
                     }, false)
                 })

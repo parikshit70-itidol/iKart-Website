@@ -8,6 +8,11 @@ import { renderWishlist } from './wishlistPage.js';
 import { renderCheckoutSummary } from './checkoutPage.js';
 import './auth.js'; // This import ensures auth.js's DOMContentLoaded listener runs
 
+// Define a global cart array (or similar structure) that holds cart items
+// This should be the single source of truth for your cart data.
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+
 // List of pages that require authentication
 const PROTECTED_PAGES = [
     'index.html',
@@ -65,6 +70,43 @@ function updateAuthUI() {
     }
 }
 
+// --- Cart Management Functions ---
+
+/**
+ * Updates all relevant cart display elements across the site.
+ * This should be called whenever the cart content changes.
+ */
+function updateAllCartDisplays() {
+    updateCartAndWishlistBadges(); // Updates navbar badges
+
+    // If on the cart page, re-render the cart items
+    if (window.location.pathname.includes('cart.html')) {
+        renderCart(); // Assumes renderCart() reads from the 'cart' variable or localStorage
+    }
+
+    // If on the checkout page, update the summary
+    if (window.location.pathname.includes('checkout.html')) {
+        renderCheckoutSummary(); // Assumes renderCheckoutSummary() reads from the 'cart' variable or localStorage
+    }
+}
+
+/**
+ * Clears all items from the cart.
+ * This function should be made globally accessible.
+ */
+function clearCart() {
+    cart = []; // Empty the cart array
+    localStorage.setItem('cart', JSON.stringify(cart)); // Update local storage
+    updateAllCartDisplays(); // Refresh all cart displays
+    console.log("Cart cleared!");
+}
+
+// Make the clearCart function globally accessible to the inline script in checkout.html
+// This is necessary because main.js is a module, and its functions aren't globally available by default.
+window.clearCart = clearCart;
+
+// --- End Cart Management Functions ---
+
 
 // Ensure the DOM is fully loaded before running any scripts
 document.addEventListener('DOMContentLoaded', () => {
@@ -83,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update UI elements related to authentication status
     updateAuthUI();
-    updateCartAndWishlistBadges();
+    updateAllCartDisplays(); // Use the new function to ensure all cart displays are fresh
 
     // --- Page Specific Logic based on URL ---
     if (path === 'index.html' || path === '') {
@@ -121,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Bootstrap form validation logic (remains inline for forms as per your original structure)
+    // This part is redundant with the checkout.html inline script for checkout form, but harmless.
     (function () {
         'use strict'
         var forms = document.querySelectorAll('.needs-validation')
