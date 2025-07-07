@@ -25,8 +25,8 @@ export function renderHomePageFeaturedProducts() {
                             <h5 class="card-title text-lg font-semibold">${product.name}</h5>
                             <p class="card-text text-muted mb-2">₹${product.price.toLocaleString('en-IN')}</p>
                             <div class="mt-auto d-grid gap-2">
-                                <a href="product-detail.html?id=${product.id}" class="btn btn-outline-primary rounded-md">View Details</a>
-                                <button class="btn btn-primary add-to-cart-btn rounded-md" data-product-id="${product.id}"><i class="bi bi-cart-plus me-2"></i>Add to Cart</button>
+                                <a href="product-detail.html?id=${product.id}" class="btn btn-dark rounded-md">View Details</a>
+                                <button class="btn btn-dark add-to-cart-btn rounded-md" data-product-id="${product.id}"><i class="bi bi-cart-plus me-2"></i>Add to Cart</button>
                                 <button class="btn btn-${isInWishlist ? 'danger' : 'outline-secondary'} toggle-wishlist-btn rounded-md" data-product-id="${product.id}">
                                     <i class="bi bi-heart${isInWishlist ? '-fill' : ''} me-2"></i>${isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}
                                 </button>

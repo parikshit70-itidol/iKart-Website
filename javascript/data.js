@@ -4,10 +4,10 @@
 export const products = [ // Make sure 'export' is here
     {
         id: 'tech-001',
-        name: 'Apple MacBook Air M3',
+        name: 'Apple MacBook Air M2',
         price: 120000,
         category: 'laptops',
-        image: 'https://placehold.co/600x400/E0E0E0/000000?text=MacBook+Air',
+        image: './assets/images/mac3.jpg',
         detailImages: [
             'https://placehold.co/600x400/E0E0E0/000000?text=MacBook+Air+Front',
             'https://placehold.co/600x400/D0D0D0/000000?text=MacBook+Air+Side',
@@ -15,7 +15,7 @@ export const products = [ // Make sure 'export' is here
         ],
         description: 'Experience unparalleled performance and efficiency with the new Apple MacBook Air M3. Perfect for professionals and students alike.',
         specifications: [
-            { key: 'Processor', value: 'Apple M3 Chip' },
+            { key: 'Processor', value: 'Apple M2 Chip' },
             { key: 'RAM', value: '8GB Unified Memory' },
             { key: 'Storage', value: '256GB SSD' },
             { key: 'Display', value: '13.6-inch Liquid Retina Display' }
@@ -26,19 +26,19 @@ export const products = [ // Make sure 'export' is here
     },
     {
         id: 'phone-001',
-        name: 'iPhone 15 Pro',
-        price: 99900,
+        name: 'iPhone 16 Pro',
+        price: 130900,
         category: 'phones',
-        image: 'https://placehold.co/600x400/E0E0E0/000000?text=iPhone+15+Pro',
+        image: './assets/images/iPhone2.jpg',
         detailImages: [
-            'https://placehold.co/600x400/E0E0E0/000000?text=iPhone+15+Pro+Front',
-            'https://placehold.co/600x400/D0D0D0/000000?text=iPhone+15+Pro+Back',
-            'https://placehold.co/600x400/C0C0C0/000000?text=iPhone+15+Pro+Side'
+            './assets/images/iPhone2.jpg',
+            './assets/images/iPhone3.jpg',
+            './assets/images/iPhone.jpg'
         ],
         description: 'Capture stunning photos and videos with the advanced camera system and enjoy lightning-fast performance.',
         specifications: [
-            { key: 'Display', value: '6.1-inch Super Retina XDR' },
-            { key: 'Processor', value: 'A17 Bionic Chip' },
+            { key: 'Display', value: '6.3-inch Super Retina XDR' },
+            { key: 'Processor', value: 'A18 pro Bionic Chip' },
             { key: 'Camera', value: 'Pro Camera System' },
             { key: 'Storage', value: '128GB' }
         ],
@@ -52,10 +52,10 @@ export const products = [ // Make sure 'export' is here
         name: 'AirPods Pro (2nd Gen)',
         price: 24900,
         category: 'audio',
-        image: 'https://placehold.co/600x400/E0E0E0/000000?text=AirPods+Pro',
+        image: './assets/images/airpods.jpg',
         detailImages: [
-            'https://placehold.co/600x400/E0E0E0/000000?text=AirPods+Pro+Case',
-            'https://placehold.co/600x400/D0D0D0/000000?text=AirPods+Pro+Earbuds'
+            './assets/images/case.jpg',
+            './assets/images/airpods_2.jpg'
         ],
         description: 'Immersive sound, active noise cancellation, and personalized spatial audio.',
         specifications: [
@@ -69,10 +69,10 @@ export const products = [ // Make sure 'export' is here
     },
     {
         id: 'watch-001',
-        name: 'Apple Watch Series 9',
-        price: 41900,
+        name: 'Apple Watch Series 10',
+        price: 59900,
         category: 'wearables',
-        image: 'https://placehold.co/600x400/E0E0E0/000000?text=Apple+Watch',
+        image: './assets/images/watch.jpg',
         detailImages: [
             'https://placehold.co/600x400/E0E0E0/000000?text=Apple+Watch+Front',
             'https://placehold.co/600x400/D0D0D0/000000?text=Apple+Watch+Side'
@@ -89,10 +89,10 @@ export const products = [ // Make sure 'export' is here
     },
     {
         id: 'tablet-001',
-        name: 'iPad Air M2',
-        price: 69900,
+        name: 'iPad Air M3',
+        price: 59900,
         category: 'tablets',
-        image: 'https://placehold.co/600x400/E0E0E0/000000?text=iPad+Air',
+        image: './assets/images/ipad.jpg',
         description: 'Powerful, portable, and perfect for creativity and productivity on the go.',
         specifications: [
             { key: 'Processor', value: 'Apple M2 Chip' },
@@ -108,7 +108,7 @@ export const products = [ // Make sure 'export' is here
         name: 'Apple Pencil (2nd Gen)',
         price: 11900,
         category: 'accessories',
-        image: 'https://placehold.co/600x400/E0E0E0/000000?text=Apple+Pencil',
+        image: './assets/images/pencil.jpg',
         description: 'The perfect tool for drawing, sketching, coloring, taking notes, and marking up documents.',
         specifications: [
             { key: 'Compatibility', value: 'iPad Pro, iPad Air, iPad mini' },
@@ -120,10 +120,10 @@ export const products = [ // Make sure 'export' is here
     },
     {
         id: 'tech-002',
-        name: 'iMac 24-inch M3',
+        name: 'iMac 24-inch M4',
         price: 180000,
         category: 'desktops',
-        image: 'https://placehold.co/600x400/E0E0E0/000000?text=iMac+M3',
+        image: './assets/images/imac.jpg',
         description: 'All-in-one desktop with a stunning design and incredible M3 chip performance.',
         specifications: [
             { key: 'Processor', value: 'Apple M3 Chip' },
@@ -140,7 +140,7 @@ export const products = [ // Make sure 'export' is here
         name: 'HomePod mini',
         price: 9900,
         category: 'audio',
-        image: 'https://placehold.co/600x400/E0E0E0/000000?text=HomePod+mini',
+        image: './assets/images/homepod.jpg',
         description: 'A smart speaker that delivers rich, 360-degree audio and intelligent assistance.',
         specifications: [
             { key: 'Chip', value: 'Apple S5 Chip' },
@@ -156,7 +156,7 @@ export const products = [ // Make sure 'export' is here
         name: 'Magic Keyboard',
         price: 14900,
         category: 'accessories',
-        image: 'https://placehold.co/600x400/E0E0E0/000000?text=Magic+Keyboard',
+        image: './assets/images/magic.jpg',
         description: 'Delivers a remarkably comfortable and precise typing experience.',
         specifications: [
             { key: 'Connectivity', value: 'Wireless (Bluetooth)' },
